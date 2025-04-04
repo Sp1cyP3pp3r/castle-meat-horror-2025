@@ -24,7 +24,7 @@ shape = SubResource("CapsuleShape3D_cy2tm")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20255, 0)
-aabb = AABB(-0.827756, -1.12011, -0.810181, 1.62426, 2.44531, 1.62036)
+aabb = AABB(-0.231495, -0.73855, -0.195569, 0.431738, 1.68219, 0.391136)
 script = ExtResource("1_fi4nm")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

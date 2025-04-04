@@ -1,3 +1,4 @@
+class_name ShakeCamera
 extends Area3D
 
 @export var trauma_reduction_rate : float = 1

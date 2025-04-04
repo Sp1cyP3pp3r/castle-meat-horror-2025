@@ -1,7 +1,13 @@
+class_name Player
 extends CharacterBody3D
 
 enum movement_mode {WALK, SPRINT, CROUCH}
 var current_movement_mode = movement_mode.WALK
+
+@onready var head: Node3D = $Head
+@onready var shake_camera: ShakeCamera = $Head/ShakeCamera
+@onready var camera: Camera3D = %Camera
+
 
 func _physics_process(delta: float) -> void:
 	handle_move(delta)

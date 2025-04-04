@@ -15,7 +15,7 @@ height = 1.6
 [sub_resource type="SphereShape3D" id="SphereShape3D_jnjyq"]
 radius = 0.05
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 8
 platform_floor_layers = 1
 script = ExtResource("1_g7ett")
