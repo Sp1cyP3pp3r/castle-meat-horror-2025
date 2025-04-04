@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://vuju2256bp81"]
+
+[ext_resource type="Script" uid="uid://dkehicto51kx7" path="res://objects/sound/sound_manager.gd" id="1_3x4i4"]
+[ext_resource type="AudioStream" uid="uid://c4wt65uidtb1p" path="res://soundtrack/hiding.mp3" id="1_txpqc"]
+[ext_resource type="AudioStream" uid="uid://dq6yhg5tfe6ks" path="res://sfx/notice_monst.mp3" id="3_gx6f3"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_3x4i4")
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_txpqc")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="AdaVoice" type="AudioStreamPlayer" parent="."]
+
+[node name="NoticedMonster" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gx6f3")
+
+[node name="HeartBeating" type="AudioStreamPlayer" parent="."]
+
+[node name="FootSteps" type="AudioStreamPlayer" parent="."]

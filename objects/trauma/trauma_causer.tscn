@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://be6u2h8kx45i3"]
+
+[ext_resource type="Script" uid="uid://0klvmc01scqj" path="res://objects/trauma/trauma_causer.gd" id="1_2pii7"]
+
+[node name="TraumaCauser" type="Area3D"]
+collision_layer = 128
+collision_mask = 256
+script = ExtResource("1_2pii7")

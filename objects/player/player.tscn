@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://btiqdpgyd7hb5"]
+
+[ext_resource type="Script" uid="uid://d4mpsy75xg2bb" path="res://objects/player/camera_3d.gd" id="1_cqmt1"]
+[ext_resource type="Script" uid="uid://dshi5tvoj3oct" path="res://objects/player/player.gd" id="1_g7ett"]
+[ext_resource type="Script" uid="uid://ctrlxubxqqp6j" path="res://objects/player/head.gd" id="2_jnjyq"]
+[ext_resource type="Script" uid="uid://dnnx70lo3s8sm" path="res://objects/player/shake_camera.gd" id="2_ssrue"]
+[ext_resource type="Texture2D" uid="uid://bpioojdxil37l" path="res://textures/sprites/Hands/hands.PNG" id="5_gnkmh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5lq1w"]
+radius = 0.25
+height = 1.6
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ssrue"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jnjyq"]
+radius = 0.05
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 8
+platform_floor_layers = 1
+script = ExtResource("1_g7ett")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_5lq1w")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
+script = ExtResource("2_jnjyq")
+
+[node name="Sprite" type="Sprite3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, -0.224815, 0.974401, 0, -0.974401, -0.224815, 0, -0.35763, -0.444539)
+pixel_size = 0.0003
+billboard = 1
+shaded = true
+no_depth_test = true
+texture = ExtResource("5_gnkmh")
+
+[node name="InteractionRay" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 64
+
+[node name="ShakeCamera" type="Area3D" parent="Head"]
+collision_layer = 256
+collision_mask = 128
+script = ExtResource("2_ssrue")
+trauma_reduction_rate = 5.0
+noise = SubResource("FastNoiseLite_ssrue")
+max_z = 0.0
+
+[node name="Camera" type="Camera3D" parent="Head/ShakeCamera" node_paths=PackedStringArray("head")]
+unique_name_in_owner = true
+far = 65000.0
+script = ExtResource("1_cqmt1")
+head = NodePath("../..")
+mouse_x_sensitivity = 30.0
+mouse_y_sensitivity = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/ShakeCamera"]
+shape = SubResource("SphereShape3D_jnjyq")
