@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvouf8q87bcx5"]
+
+[ext_resource type="Shader" uid="uid://bobs36wrwigva" path="res://materials/wallpaper_with_wood_panels.tres" id="1_rm00j"]
+[ext_resource type="Texture2D" uid="uid://qgl7qpm8m405" path="res://textures/Enviroment/walls/wall_wood_panel.jpg" id="2_rm00j"]
+[ext_resource type="Texture2D" uid="uid://b5rimglym4ktk" path="res://textures/Enviroment/walls/wallpaper_striped.jpg" id="3_fve76"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fve76"]
+render_priority = 0
+shader = ExtResource("1_rm00j")
+shader_parameter/split_position = 0.5
+shader_parameter/bottom_albedo = Color(0.933061, 0.409924, 0.326396, 1)
+shader_parameter/bottom_texture = ExtResource("2_rm00j")
+shader_parameter/top_albedo = Color(0.393424, 0.665421, 0.483262, 1)
+shader_parameter/top_texture = ExtResource("3_fve76")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fve76"]
+material = SubResource("ShaderMaterial_fve76")
+
+[node name="wall_test" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fve76")
